@@ -1,0 +1,15 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+containerdConfigPatches:
+- |-
+  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."localhost:5000"]
+    endpoint = ["http://kind-registry:5000"]
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 32000
+    hostPort: 8200
+  - containerPort: 32500
+    hostPort: 8500
+  - containerPort: 32501
+    hostPort: 8501

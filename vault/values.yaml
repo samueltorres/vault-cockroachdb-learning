@@ -1,0 +1,14 @@
+server:
+  dev:
+    enabled: true
+  service:
+    enabled: true
+    type: NodePort
+    nodePort: 32000
+    port: 8200
+    targetPort: 8200
+    annotations: {}
+injector:
+  enabled: false
+dataStorage:
+  size: 100Mi
